@@ -1,6 +1,11 @@
 import 'package:bookly_app/assets.dart';
+import 'package:bookly_app/constants.dart';
+import 'package:bookly_app/features/home/presentation/views/home_view.dart';
+import 'package:bookly_app/features/splash/presentation/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -14,18 +19,26 @@ class _SplashViewBodyState extends State<SplashViewBody>
   // with SingleTickerProviderStateMixin لازم اعملها عشان اقدر اتعامل مع الكنترولر
   late AnimationController animationController; // بتاخد قيمة من 0 الي 1
   late Animation<Offset> animation; // بتاخد اي قيم انا عايزها
-  @override
-  void initState() {
-    super.initState();
 
-    animationController =
-        AnimationController(vsync: this, duration: Duration(seconds: 1));
 
-    animation = Tween(begin: Offset(0, 5), end: Offset.zero)
-        .animate(animationController);
+@override
+void initState() {
+  super.initState();
 
-    animationController.forward();
-  }
+  initSlidingAnimation();
+
+  navigateToHome();
+}
+
+void navigateToHome() {
+  Future.delayed(Duration(seconds: 2), () {
+    Get.to(
+      () => HomeView(),
+      transition: Transition.fade,
+      duration: kDurationTransition,
+    );
+  });
+}
 
   @override
   void dispose() {
@@ -48,16 +61,18 @@ class _SplashViewBodyState extends State<SplashViewBody>
         SizedBox(
           height: 10,
         ),
-        AnimatedBuilder(
-          builder: (context, _) {
-            return SlideTransition(
-              position: animation,
-              child: Text("Read Free Books"),
-            );
-          },
-          animation: animation,
-        )
+        SlidingText(animation: animation)
       ],
     );
+  }
+
+  void initSlidingAnimation() {
+    animationController =
+        AnimationController(vsync: this, duration: Duration(seconds: 1));
+
+    animation = Tween(begin: Offset(0, 5), end: Offset.zero)
+        .animate(animationController);
+
+    animationController.forward();
   }
 }
