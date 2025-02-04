@@ -44,7 +44,7 @@ class BestSellarListViewItem extends StatelessWidget {
                   style: Styles.textStyle22,
                 ),
                 SizedBox(
-                  width: 70,
+                  width: screenWidth * 0.17,
                 ),
                 Icon(
                   FontAwesomeIcons.solidStar,
