@@ -11,7 +11,7 @@ class FeaturesListView extends StatelessWidget {
       itemCount: 10,
       itemBuilder: (context, index) {
         return Padding(
-          padding: const EdgeInsets.only(left: 10),
+          padding: const EdgeInsets.only(right: 10),
           child: FeaturesListViewItem(),
         );
       },
