@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/home/presentation/widgets/best_sellar_list_view_item.dart';
 import 'package:bookly_app/features/home/presentation/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/widgets/features_list_view.dart';
 import 'package:bookly_app/features/home/presentation/widgets/features_list_view_item.dart';
@@ -27,8 +28,12 @@ class HomeViewBody extends StatelessWidget {
           ),
           Text(
             "Best Sellar",
-            style: Styles.titelMedium,
-          )
+            style: Styles.textStyle22,
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          SizedBox(height: 110, child: BestSellarListViewItem()),
         ],
       ),
     );
