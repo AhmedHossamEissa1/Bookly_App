@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/home/presentation/widgets/best_sellar_list_view.dart';
 import 'package:bookly_app/features/home/presentation/widgets/best_sellar_list_view_item.dart';
 import 'package:bookly_app/features/home/presentation/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/widgets/features_list_view.dart';
@@ -19,9 +20,7 @@ class HomeViewBody extends StatelessWidget {
           CustomAppBar(),
           SizedBox(
             height: screenHeight * 0.32,
-            child: Expanded(
-              child: FeaturesListView(),
-            ),
+            child: FeaturesListView(),
           ),
           SizedBox(
             height: 35,
@@ -33,7 +32,7 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: 20,
           ),
-          SizedBox(height: 120, child: BestSellarListViewItem()),
+          BestSellarListView(),
         ],
       ),
     );
