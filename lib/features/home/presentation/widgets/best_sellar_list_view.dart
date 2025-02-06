@@ -6,13 +6,14 @@ class BestSellarListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: 10,
-        itemBuilder: (context, index) {
-          return BestSellarListViewItem();
-        },
-      ),
+    return ListView.builder(
+      padding: EdgeInsets.zero,
+      itemCount: 10,
+      shrinkWrap: true, // عشان ال custom scroll view
+      physics: NeverScrollableScrollPhysics(),
+      itemBuilder: (context, index) {
+        return BestSellarListViewItem();
+      },
     );
   }
 }

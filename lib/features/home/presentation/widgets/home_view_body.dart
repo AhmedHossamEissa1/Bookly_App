@@ -14,25 +14,31 @@ class HomeViewBody extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
     return Padding(
       padding: const EdgeInsets.only(left: 16),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomAppBar(),
-          SizedBox(
-            height: screenHeight * 0.32,
-            child: FeaturesListView(),
+      child: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CustomAppBar(),
+                SizedBox(
+                  height: screenHeight * 0.32,
+                  child: FeaturesListView(),
+                ),
+                SizedBox(
+                  height: 35,
+                ),
+                Text(
+                  "Best Sellar",
+                  style: Styles.textStyle22,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+              ],
+            ),
           ),
-          SizedBox(
-            height: 35,
-          ),
-          Text(
-            "Best Sellar",
-            style: Styles.textStyle22,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          BestSellarListView(),
+          SliverToBoxAdapter(child: BestSellarListView()),
         ],
       ),
     );

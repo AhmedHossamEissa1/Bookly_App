@@ -10,68 +10,71 @@ class BestSellarListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
-      height: 120,
-      child: Row(
-        children: [
-          AspectRatio(
-            aspectRatio: 2.7 / 4,
-            child: Container(
-              decoration: BoxDecoration(
-                  image: DecorationImage(
-                image: AssetImage(AssetsData.spiderMan),
-                fit: BoxFit.fill,
-              )),
-            ),
-          ),
-          SizedBox(
-            width: 20,
-          ),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: screenWidth * .67,
-                child: Text(
-                  "Harry Potter\nand the Goblet of Fire",
-                  style: Styles.textStyle24,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                ),
+      height: 140,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10),
+        child: Row(
+          children: [
+            AspectRatio(
+              aspectRatio: 2.7 / 4,
+              child: Container(
+                decoration: BoxDecoration(
+                    image: DecorationImage(
+                  image: AssetImage(AssetsData.spiderMan),
+                  fit: BoxFit.fill,
+                )),
               ),
-              Text("J.K. Rowling"),
-              Row(
-                children: [
-                  Text(
-                    "19.99 €",
-                    style: Styles.textStyle22,
+            ),
+            SizedBox(
+              width: 20,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: screenWidth * .67,
+                  child: Text(
+                    "Harry Potter\nand the Goblet of Fire",
+                    style: Styles.textStyle24,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  SizedBox(
-                    width: screenWidth * 0.17,
-                  ),
-                  Icon(
-                    FontAwesomeIcons.solidStar,
-                    color: Color(0xffFFDD4F),
-                    size: 16,
-                  ),
-                  SizedBox(
-                    width: 8,
-                  ),
-                  Text(
-                    "4.8",
-                    style: Styles.textStyle18,
-                  ),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(
-                    "(2390)",
-                    style: TextStyle(color: Color(0xff979797)),
-                  ),
-                ],
-              )
-            ],
-          )
-        ],
+                ),
+                Text("J.K. Rowling"),
+                Row(
+                  children: [
+                    Text(
+                      "19.99 €",
+                      style: Styles.textStyle22,
+                    ),
+                    SizedBox(
+                      width: screenWidth * 0.17,
+                    ),
+                    Icon(
+                      FontAwesomeIcons.solidStar,
+                      color: Color(0xffFFDD4F),
+                      size: 16,
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Text(
+                      "4.8",
+                      style: Styles.textStyle18,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(
+                      "(2390)",
+                      style: TextStyle(color: Color(0xff979797)),
+                    ),
+                  ],
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
