@@ -1,4 +1,5 @@
 import 'package:bookly_app/assets.dart';
+import 'package:bookly_app/features/home/presentation/widgets/rating_book.dart';
 import 'package:bookly_app/routers.dart';
 import 'package:bookly_app/styles.dart';
 import 'package:flutter/material.dart';
@@ -54,27 +55,9 @@ class BestSellarListViewItem extends StatelessWidget {
                       SizedBox(
                         width: screenWidth * 0.17,
                       ),
-                      Icon(
-                        FontAwesomeIcons.solidStar,
-                        color: Color(0xffFFDD4F),
-                        size: 16,
-                      ),
-                      SizedBox(
-                        width: 8,
-                      ),
-                      Text(
-                        "4.8",
-                        style: Styles.textStyle18,
-                      ),
-                      SizedBox(
-                        width: 5,
-                      ),
-                      Text(
-                        "(2390)",
-                        style: TextStyle(color: Color(0xff979797)),
-                      ),
+                      RatingBook(),
                     ],
-                  )
+                  ),
                 ],
               )
             ],
