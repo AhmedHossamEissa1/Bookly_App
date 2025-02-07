@@ -13,7 +13,9 @@ class BestSellarListViewItem extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return GestureDetector(
-      onTap: () => context.go(AppRouters.kBookDetailsView),
+      onTap: () {
+        GoRouter.of(context).push(AppRouters.kBookDetailsView);
+      },
       child: SizedBox(
         height: 140,
         child: Padding(
