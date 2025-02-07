@@ -2,6 +2,7 @@ import 'package:bookly_app/core/utils/widgets/custom_text_button.dart';
 import 'package:bookly_app/features/home/presentation/widgets/custom_app_bar_book_details.dart';
 import 'package:bookly_app/features/home/presentation/widgets/features_list_view_item.dart';
 import 'package:bookly_app/features/home/presentation/widgets/rating_book.dart';
+import 'package:bookly_app/features/home/presentation/widgets/similar_books_list_view.dart';
 import 'package:bookly_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -15,8 +16,8 @@ class BookDetailsViewBody extends StatelessWidget {
     double screenHeight = MediaQuery.of(context).size.height;
 
     return Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: 26, vertical: 35), // Adjust the factor as needed
+      padding: EdgeInsets.only(
+          right: 26, left: 26, top: 30), // Adjust the factor as needed
       child: SafeArea(
         child: Column(
           children: [
@@ -51,7 +52,6 @@ class BookDetailsViewBody extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -72,6 +72,20 @@ class BookDetailsViewBody extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: 30,
+            ),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: Text("You can also like"),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              height: screenHeight * 0.15,
+              child: SimilarBooksListView(),
+            )
           ],
         ),
       ),
