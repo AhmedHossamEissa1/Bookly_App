@@ -11,26 +11,23 @@ abstract class AppRouters {
   static final GoRouter router = GoRouter(
     routes: [
       GoRoute(
-        path:'/' ,
+        path: '/',
         builder: (BuildContext context, GoRouterState state) {
           return HomeView();
         },
       ),
-      
-          GoRoute(
-            path:kBookDetailsView ,
-            builder: (BuildContext context, GoRouterState state) {
-              return BookDetailsView();
-            },
-          ),
-          GoRoute(
-            path:kSearchView ,
-            builder: (BuildContext context, GoRouterState state) {
-              return SearchView();
-            },
-          ),
-  
-    
+      GoRoute(
+        path: kBookDetailsView,
+        builder: (BuildContext context, GoRouterState state) {
+          return BookDetailsView();
+        },
+      ),
+      GoRoute(
+        path: kSearchView,
+        builder: (BuildContext context, GoRouterState state) {
+          return SearchView();
+        },
+      ),
     ],
   );
 }
