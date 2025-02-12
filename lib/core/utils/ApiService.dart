@@ -9,7 +9,13 @@ class Apiservice {
   Apiservice(this._dio);
 
   Future<Map<String, dynamic>> get(String endPoint) async {
-    var response = await _dio.get('$_baseUrl$endPoint');
-    return response.data;
+    try {
+      var response = await _dio.get('$_baseUrl$endPoint');
+      print(response.data);
+      return response.data;
+    } catch (e) {
+      print("Error fetching data: $e");
+      return {}; // Return an empty map instead of null to prevent issues.
+    }
   }
 }
