@@ -26,7 +26,8 @@ class BookDetailsViewBody extends StatelessWidget {
               padding: EdgeInsets.symmetric(
                   horizontal:
                       screenWidth * 0.22), // Example: 5% of screen width
-              child: FeaturesListViewItem(),
+              // ignore: prefer_const_constructors
+              child: FeaturesListViewItem(imgUrl: 'assets/images/spiderman.jpg',),
             ),
             SizedBox(
               height: 20,

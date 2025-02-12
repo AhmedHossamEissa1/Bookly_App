@@ -12,7 +12,7 @@ class SimilarBooksListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.only(right: 6),
-          child: FeaturesListViewItem(),
+          child: FeaturesListViewItem(imgUrl: 'assets/images/spiderman.jpg',),
         );
       },
     );
