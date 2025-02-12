@@ -19,17 +19,18 @@ class BestSellarListView extends StatelessWidget {
         if (state is NewBooksSuccess) {
           return ListView.builder(
             padding: EdgeInsets.zero,
-            itemCount: 10,
+            itemCount: state.books.length,
             shrinkWrap: true, // عشان ال custom scroll view
             physics: NeverScrollableScrollPhysics(),
             itemBuilder: (context, index) {
-              return BestSellarListViewItem();
+              return BestSellarListViewItem(
+                bookModel: state.books[index],
+              );
             },
           );
         } else if (state is NewBooksFail) {
           return CustomErrorWidget(errorMessage: state.errorMessage);
         } else {
-          
           return Center(child: CircularProgressIndicator());
         }
       },

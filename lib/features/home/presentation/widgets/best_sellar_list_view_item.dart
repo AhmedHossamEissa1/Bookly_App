@@ -1,4 +1,8 @@
+import 'dart:math';
+
 import 'package:bookly_app/assets.dart';
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
+import 'package:bookly_app/features/home/presentation/widgets/CustomImage.dart';
 import 'package:bookly_app/features/home/presentation/widgets/rating_book.dart';
 import 'package:bookly_app/routers.dart';
 import 'package:bookly_app/styles.dart';
@@ -7,7 +11,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class BestSellarListViewItem extends StatelessWidget {
-  const BestSellarListViewItem({super.key});
+  final BookModel bookModel;
+  const BestSellarListViewItem({super.key, required this.bookModel});
 
   @override
   Widget build(BuildContext context) {
@@ -22,16 +27,7 @@ class BestSellarListViewItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
-              AspectRatio(
-                aspectRatio: 2.7 / 4,
-                child: Container(
-                  decoration: BoxDecoration(
-                      image: DecorationImage(
-                    image: AssetImage(AssetsData.spiderMan),
-                    fit: BoxFit.fill,
-                  )),
-                ),
-              ),
+              Customimage(imgUrl: bookModel.volumeInfo.imageLinks.thumbnail),
               SizedBox(
                 width: 20,
               ),
@@ -41,23 +37,31 @@ class BestSellarListViewItem extends StatelessWidget {
                   SizedBox(
                     width: screenWidth * .67,
                     child: Text(
-                      "Harry Potter\nand the Goblet of Fire",
+                      bookModel.volumeInfo.title ?? "",
                       style: Styles.textStyle24,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
-                  Text("J.K. Rowling"),
+                  Text(
+                    (bookModel.volumeInfo.authors != null &&
+                            bookModel.volumeInfo.authors!.isNotEmpty)
+                        ? bookModel.volumeInfo.authors![0]
+                        : "",
+                  ),
                   Row(
                     children: [
                       Text(
-                        "19.99 €",
+                        "Free",
                         style: Styles.textStyle22,
                       ),
                       SizedBox(
                         width: screenWidth * 0.17,
                       ),
-                      RatingBook(),
+                      RatingBook(
+                        rating: Random().nextInt(5) + 1,
+                        count: bookModel.volumeInfo.pageCount ?? 100,
+                      ),
                     ],
                   ),
                 ],

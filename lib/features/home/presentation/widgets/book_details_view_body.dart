@@ -47,7 +47,7 @@ class BookDetailsViewBody extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                RatingBook(),
+                RatingBook(rating: 11, count: 213,),
               ],
             ),
             SizedBox(
