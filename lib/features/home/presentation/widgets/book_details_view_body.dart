@@ -31,8 +31,7 @@ class BookDetailsViewBody extends StatelessWidget {
                       horizontal:
                           screenWidth * 0.22), // Example: 5% of screen width
                   // ignore: prefer_const_constructors
-                  child: Customimage(
-                      imgUrl: bookModel.volumeInfo.imageLinks.thumbnail)),
+                  child: Customimage(imgUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),),
               SizedBox(
                 height: 20,
               ),

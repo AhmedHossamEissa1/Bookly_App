@@ -20,7 +20,7 @@ class FeaturesListView extends StatelessWidget {
               return Padding(
                 padding: const EdgeInsets.only(right: 20),
                 child: FeaturesListViewItem(
-                  imgUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                  imgUrl: state.books[index].volumeInfo.imageLinks?.thumbnail??'',
                 ),
               );
             },

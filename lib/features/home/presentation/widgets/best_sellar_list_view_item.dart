@@ -27,7 +27,7 @@ class BestSellarListViewItem extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 10),
           child: Row(
             children: [
-              Customimage(imgUrl: bookModel.volumeInfo.imageLinks.thumbnail),
+              Customimage(imgUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
               SizedBox(
                 width: 20,
               ),

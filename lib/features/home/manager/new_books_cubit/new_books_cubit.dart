@@ -4,6 +4,7 @@ import 'package:bookly_app/features/home/manager/features_books_cubit/featues_bo
 import 'package:bookly_app/features/home/manager/new_books_cubit/new_books_states.dart';
 
 class NewBooksCubit extends Cubit<NewBooksStates> {
+  
   NewBooksCubit(this.homeRepo) : super(NewBooksInitial());
 
   final HomeRepo homeRepo;

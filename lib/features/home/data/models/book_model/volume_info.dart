@@ -9,20 +9,20 @@ import 'reading_modes.dart';
 
 class VolumeInfo extends Equatable {
   final String? title;
-  final List<String>? authors;
+  final List<String> authors;
   final String? publisher;
   final String? publishedDate;
   final String? description;
-  final List<IndustryIdentifier>? industryIdentifiers;
+  final List<IndustryIdentifier> industryIdentifiers;
   final ReadingModes? readingModes;
   final int? pageCount;
   final String? printType;
-  final List<String>? categories;
+  final List<String> categories;
   final String? maturityRating;
   final bool? allowAnonLogging;
   final String? contentVersion;
   final PanelizationSummary? panelizationSummary;
-  final ImageLinks imageLinks;
+  final ImageLinks? imageLinks;
   final String? language;
   final String? previewLink;
   final String? infoLink;
@@ -30,20 +30,20 @@ class VolumeInfo extends Equatable {
 
   const VolumeInfo({
     this.title,
-    this.authors,
+    this.authors = const [],
     this.publisher,
     this.publishedDate,
     this.description,
-    this.industryIdentifiers,
+    this.industryIdentifiers = const [],
     this.readingModes,
     this.pageCount,
     this.printType,
-    this.categories,
+    this.categories = const [],
     this.maturityRating,
     this.allowAnonLogging,
     this.contentVersion,
     this.panelizationSummary,
- required  this.imageLinks,
+    this.imageLinks,
     this.language,
     this.previewLink,
     this.infoLink,
@@ -51,30 +51,24 @@ class VolumeInfo extends Equatable {
   });
 
   factory VolumeInfo.fromJson(Map<String, dynamic> json) {
-    log(json.toString()); // Corrected log statement
+    log(json.toString()); // تصحيح طباعة السجل
 
     return VolumeInfo(
       title: json['title'] as String?,
-      authors: (json['authors'] is List)
-          ? List<String>.from(json['authors'] as List)
-          : [], // Default to empty list
+      authors: (json['authors'] as List?)?.cast<String>() ?? [], // تجنب null
       publisher: json['publisher'] as String?,
       publishedDate: json['publishedDate'] as String?,
       description: json['description'] as String?,
-      industryIdentifiers: (json['industryIdentifiers'] is List)
-          ? (json['industryIdentifiers'] as List)
-              .map(
-                  (e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
-              .toList()
-          : [], // Default to empty list
+      industryIdentifiers: (json['industryIdentifiers'] as List?)
+              ?.map((e) => IndustryIdentifier.fromJson(e as Map<String, dynamic>))
+              .toList() ??
+          [],
       readingModes: json['readingModes'] == null
           ? null
           : ReadingModes.fromJson(json['readingModes'] as Map<String, dynamic>),
       pageCount: json['pageCount'] as int?,
       printType: json['printType'] as String?,
-      categories: (json['categories'] is List)
-          ? List<String>.from(json['categories'] as List)
-          : [], // Default to empty list
+      categories: (json['categories'] as List?)?.cast<String>() ?? [],
       maturityRating: json['maturityRating'] as String?,
       allowAnonLogging: json['allowAnonLogging'] as bool?,
       contentVersion: json['contentVersion'] as String?,
@@ -82,7 +76,9 @@ class VolumeInfo extends Equatable {
           ? null
           : PanelizationSummary.fromJson(
               json['panelizationSummary'] as Map<String, dynamic>),
-      imageLinks: ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>),
+      imageLinks: json['imageLinks'] != null
+          ? ImageLinks.fromJson(json['imageLinks'] as Map<String, dynamic>)
+          : null, // التأكد من أن imageLinks يمكن أن يكون null
       language: json['language'] as String?,
       previewLink: json['previewLink'] as String?,
       infoLink: json['infoLink'] as String?,
@@ -96,8 +92,7 @@ class VolumeInfo extends Equatable {
         'publisher': publisher,
         'publishedDate': publishedDate,
         'description': description,
-        'industryIdentifiers':
-            industryIdentifiers?.map((e) => e.toJson()).toList(),
+        'industryIdentifiers': industryIdentifiers.map((e) => e.toJson()).toList(),
         'readingModes': readingModes?.toJson(),
         'pageCount': pageCount,
         'printType': printType,

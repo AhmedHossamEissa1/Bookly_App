@@ -18,7 +18,7 @@ class BookDetailsView extends StatelessWidget {
         body: BlocProvider(
       create: (context) =>
           SimilarBooksCubit(getIt.get<HomeRepoImplementation>())
-            ..fetchSimilarBooks(),
+            ..fetchSimilarrBooks(category: bookModel.volumeInfo.categories[0]),
       child: BookDetailsViewBody(
         bookModel: bookModel,
       ),
