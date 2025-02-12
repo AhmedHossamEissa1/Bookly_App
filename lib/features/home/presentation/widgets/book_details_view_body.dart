@@ -27,17 +27,30 @@ class BookDetailsViewBody extends StatelessWidget {
             children: [
               CustomAppBarBookDetails(),
               Padding(
-                  padding: EdgeInsets.symmetric(
-                      horizontal:
-                          screenWidth * 0.22), // Example: 5% of screen width
-                  // ignore: prefer_const_constructors
-                  child: Customimage(imgUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),),
+                padding: EdgeInsets.symmetric(
+                    horizontal:
+                        screenWidth * 0.22), // Example: 5% of screen width
+                // ignore: prefer_const_constructors
+                child: Customimage(
+                    imgUrl: bookModel.volumeInfo.imageLinks?.thumbnail ?? ''),
+              ),
               SizedBox(
                 height: 20,
               ),
-              Text(
-                bookModel.volumeInfo.title ?? "",
-                style: Styles.textStyle28,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    // Ensure text does not exceed the screen width
+                    child: Text(
+                      bookModel.volumeInfo.title ?? "",
+                      style: Styles.textStyle26,
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 1, // Restrict to 1 line to prevent overflow
+                      textAlign: TextAlign.center, // Center the text
+                    ),
+                  ),
+                ],
               ),
               SizedBox(
                 height: 10,
