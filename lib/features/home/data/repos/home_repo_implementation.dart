@@ -37,7 +37,7 @@ class HomeRepoImplementation implements HomeRepo {
     log("\n\n\n fetchnewsbooks home repo");
     try {
       var data = await apiservice
-          .get('volumes?filtering=free-ebooks&q=subject:Programming');
+          .get('volumes?filtering=free-ebooks&q=computer science');
 
       List<BookModel> books = [];
       for (var item in data['items']) {
