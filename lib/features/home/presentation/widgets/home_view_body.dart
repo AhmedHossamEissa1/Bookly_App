@@ -22,7 +22,7 @@ class HomeViewBody extends StatelessWidget {
               children: [
                 CustomAppBar(),
                 SizedBox(
-                  height: screenHeight * 0.32,
+                  height: screenHeight * 0.36,
                   child: FeaturesListView(),
                 ),
                 SizedBox(

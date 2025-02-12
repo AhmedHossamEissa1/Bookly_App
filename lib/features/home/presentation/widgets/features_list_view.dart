@@ -15,11 +15,13 @@ class FeaturesListView extends StatelessWidget {
         if (state is FeatursBooksSuccess) {
           return ListView.builder(
             scrollDirection: Axis.horizontal,
-            itemCount: 10,
+            itemCount: state.books.length,
             itemBuilder: (context, index) {
               return Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: FeaturesListViewItem(imgUrl: state.books[index].volumeInfo.imageLinks.thumbnail,),
+                padding: const EdgeInsets.only(right: 20),
+                child: FeaturesListViewItem(
+                  imgUrl: state.books[index].volumeInfo.imageLinks.thumbnail,
+                ),
               );
             },
           );
