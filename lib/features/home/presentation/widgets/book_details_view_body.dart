@@ -46,7 +46,7 @@ class BookDetailsViewBody extends StatelessWidget {
                       bookModel.volumeInfo.title ?? "",
                       style: Styles.textStyle26,
                       overflow: TextOverflow.ellipsis,
-                      maxLines: 1, // Restrict to 1 line to prevent overflow
+                      maxLines: 2, // Restrict to 1 line to prevent overflow
                       textAlign: TextAlign.center, // Center the text
                     ),
                   ),
