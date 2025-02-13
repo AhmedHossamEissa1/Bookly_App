@@ -95,7 +95,7 @@ class BookDetailsViewBody extends StatelessWidget {
                         throw Exception('Could not launch $url');
                       }
                     },
-                    txt: "Free preview",
+                    txt: getText(bookModel),
                     border: BorderRadius.only(
                         topRight: Radius.circular(12),
                         bottomRight: Radius.circular(12)),
@@ -125,4 +125,11 @@ class BookDetailsViewBody extends StatelessWidget {
       ),
     );
   }
+}
+
+String getText(BookModel bookModel) {
+  if (bookModel.volumeInfo.previewLink == null) {
+    return 'Not Available';
+  } else
+    return 'Free Preview';
 }
