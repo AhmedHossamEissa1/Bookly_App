@@ -2,6 +2,7 @@ import 'package:bookly_app/features/home/data/models/book_model/book_model.dart'
 import 'package:bookly_app/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/features/home/presentation/views/home_view.dart';
 import 'package:bookly_app/features/search/presentation/views/search_view.dart';
+import 'package:bookly_app/features/splash/presentation/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,6 +14,12 @@ abstract class AppRouters {
     routes: [
       GoRoute(
         path: '/',
+        builder: (BuildContext context, GoRouterState state) {
+          return SplashView();
+        },
+      ),
+      GoRoute(
+        path: kHomeView,
         builder: (BuildContext context, GoRouterState state) {
           return HomeView();
         },
