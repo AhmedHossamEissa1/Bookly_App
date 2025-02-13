@@ -8,6 +8,7 @@ import 'package:bookly_app/features/home/presentation/widgets/similar_books_list
 import 'package:bookly_app/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   final BookModel bookModel;
@@ -79,19 +80,28 @@ class BookDetailsViewBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CustomTextButton(
-                      txt: "Free",
-                      border: BorderRadius.only(
-                          topLeft: Radius.circular(12),
-                          bottomLeft: Radius.circular(12)),
-                      backGroundColor: Colors.white,
-                      textColor: Colors.black),
+                    txt: "Free",
+                    border: BorderRadius.only(
+                        topLeft: Radius.circular(12),
+                        bottomLeft: Radius.circular(12)),
+                    backGroundColor: Colors.white,
+                    textColor: Colors.black,
+                    bookModel: bookModel,
+                  ),
                   CustomTextButton(
+                    onPreased: () async {
+                      Uri url = Uri.parse(bookModel.volumeInfo.previewLink!);
+                      if (!await launchUrl(url)) {
+                        throw Exception('Could not launch $url');
+                      }
+                    },
                     txt: "Free preview",
                     border: BorderRadius.only(
                         topRight: Radius.circular(12),
                         bottomRight: Radius.circular(12)),
                     backGroundColor: Color(0xffEF8262),
                     textColor: Colors.white,
+                    bookModel: bookModel,
                   ),
                 ],
               ),

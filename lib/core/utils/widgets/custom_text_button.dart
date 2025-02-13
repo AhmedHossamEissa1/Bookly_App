@@ -1,3 +1,4 @@
+import 'package:bookly_app/features/home/data/models/book_model/book_model.dart';
 import 'package:bookly_app/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -8,9 +9,10 @@ class CustomTextButton extends StatelessWidget {
     required this.border,
     required this.backGroundColor,
     required this.textColor,
-    this.onPreased,
+    this.onPreased, required this.bookModel,
   });
 
+  final BookModel bookModel;
   final String txt;
   final BorderRadius border;
   final Color backGroundColor;
