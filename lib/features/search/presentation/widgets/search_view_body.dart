@@ -1,6 +1,7 @@
 import 'package:bookly_app/features/home/presentation/views/book_details_view.dart';
 import 'package:bookly_app/features/home/presentation/widgets/best_sellar_list_view.dart';
 import 'package:bookly_app/features/search/presentation/widgets/cutom_search_text_field.dart';
+import 'package:bookly_app/features/search/presentation/widgets/search_list_view.dart';
 import 'package:bookly_app/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,6 @@ class SearchViewBody extends StatelessWidget {
             SizedBox(
               height: 30,
             ),
-            CutomSearchTextField(),
             SizedBox(
               height: 10,
             ),
@@ -31,7 +31,7 @@ class SearchViewBody extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            BestSellarListView()
+            SearchListView()
           ],
         ),
       ),
